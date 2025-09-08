@@ -1,35 +1,16 @@
 export class Empanada {
-  public id: number;
-  public name: string;
-  public type: string;
-  public filling: string | null;
-  public price: number | null;
-  public isSoldOut: boolean;
-  public createdAt: Date;
-  public updatedAt: Date;
-
   constructor(
-    id: number,
-    name: string,
-    type: string,
-    filling: string | null = null,
-    price: number | null = null,
-    isSoldOut: boolean = false,
-    createdAt: Date = new Date(),
-    updatedAt: Date = new Date()
+    public id: number = 0,
+    public name: string,
+    public type: string,
+    public filling: string | null = null,
+    public price: number, 
+    public isSoldOut: boolean = false,
+    public readonly createdAt: Date = new Date(),
+    public readonly updatedAt: Date = new Date()
   ) {
-    this.id = id;
-    this.name = name;
-    this.type = type;
-    this.filling = filling;
-    this.price = price;
-    this.isSoldOut = isSoldOut;
-    this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
-
-
-    if (!name.trim()) throw new Error('Name Required');
-    if (!type.trim()) throw new Error('Type required');
+    if (!name) throw new Error('Name Required');
+    if (!type) throw new Error('Type required');
+    if (!price) throw new Error('Type required');
   }
-
 }

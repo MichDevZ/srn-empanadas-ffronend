@@ -2,7 +2,9 @@ import mysql from 'mysql2/promise';
 import { Empanada } from '../../domain/entities/empanada';
 import { IEmpanadaRepository } from 'src/application/repositories/empanada.repository';
 import { EmpanadaRow } from '../types/empanada';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class MySQLEmpanadaRepository implements IEmpanadaRepository {
   private pool: mysql.Pool;
 

@@ -3,7 +3,7 @@ export interface EmpanadaRow {
   name: string;
   type: string;
   filling: string | null;
-  price: number | null;
+  price: number
   is_sold_out: boolean;
   created_at: Date;
   updated_at: Date;
