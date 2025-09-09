@@ -1,13 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { IEmpanadaRepository } from '../repositories/empanada.repository';
-import { Empanada } from 'src/domain/entities/empanada';
+import { EMPANADA_REPOSITORY } from 'src/shared/constants/tokens';
 
 
 @Injectable()
 export class DeleteEmpanadaUseCase {
-  constructor(private readonly repo: IEmpanadaRepository) {}
+  constructor(
+    @Inject(EMPANADA_REPOSITORY)
+    private readonly repo: IEmpanadaRepository
+) {}
 
-  async execute(empanadaData: Empanada): Promise<void> {
-    return this.repo.delete(empanadaData.id);
+  async execute(id: number): Promise<void> {
+    return this.repo.delete(id);
   }
 }

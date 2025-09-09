@@ -1,0 +1,2 @@
+
+export const EMPANADA_REPOSITORY = Symbol('EMPANADA_REPOSITORY');
