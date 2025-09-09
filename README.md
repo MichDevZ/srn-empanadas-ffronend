@@ -46,5 +46,6 @@
      Accede a `http://localhost:8080` en tu navegador.
 
 ## Notas
-- Si `php spark serve` falla, verifica que CodeIgniter esté instalado o  (`composer install` si es necesario).
+- Si `php spark serve` falla, verifica que CodeIgniter esté instalado o que la extensión intl de PHP esté habilitada. (`composer install` si es necesario).
+
 
