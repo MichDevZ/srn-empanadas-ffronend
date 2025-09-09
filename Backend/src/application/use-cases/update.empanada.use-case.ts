@@ -11,7 +11,7 @@ export class UpdateEmpanadaUseCase {
     private readonly repo: IEmpanadaRepository
   ) {}
 
-  async execute(empanadaData: Empanada): Promise<Empanada> {
-    return this.repo.update(empanadaData.id, empanadaData);
+  async execute(id: number, empanadaData: Empanada): Promise<Empanada> {
+    return this.repo.update(id, empanadaData);
   }
 }

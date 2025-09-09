@@ -11,7 +11,14 @@ export class CreateEmpanadaUseCase {
     private readonly repo: IEmpanadaRepository
   ) {}
 
-  async execute(empanadaData: Empanada): Promise<Empanada> {
-    return this.repo.create(empanadaData);
+  async execute(name: string, type: string, price: number ,filling?: string): Promise<Empanada> {
+     const empanada = new Empanada(
+      undefined,
+      name,
+      type,
+      filling ?? null,
+      price,
+    );
+    return this.repo.create(empanada);
   }
 }

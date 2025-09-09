@@ -4,6 +4,7 @@ import { FindAllEmpanadaUseCase } from '../../application/use-cases/findAll.Empa
 import { UpdateEmpanadaUseCase } from 'src/application/use-cases/update.empanada.use-case';
 import { DeleteEmpanadaUseCase } from 'src/application/use-cases/delete.empanada.use-case';
 import { Empanada } from 'src/domain/entities/empanada';
+import { CreateEmpanadaDto } from '../DTO/empanada.dto';
 
 
 @Controller('api')
@@ -21,13 +22,17 @@ export class EmpanadasController {
   }
 
   @Post('empanada')
-  async create(@Body() empanada: Empanada): Promise<Empanada> {
-    return this.createUseCase.execute(empanada);
+  async create(@Body() empanada: CreateEmpanadaDto): Promise<Empanada> {
+   const {name, filling, price, type} = empanada
+    return this.createUseCase.execute(name, type, price, filling );
   }
 
   @Put('empanada/:id')
-  async update(@Param('id') @Body() empanada: Empanada): Promise<Empanada> {
-    return this.updateUseCase.execute(empanada);
+  async update(
+    @Param('id') id: string,
+    @Body() empanada: Empanada,
+  ): Promise<Empanada> {
+    return this.updateUseCase.execute(+id, empanada);
   }
 
   @Delete('empanada/:id')
