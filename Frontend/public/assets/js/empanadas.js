@@ -34,11 +34,13 @@ async function saveEmpanada() {
         name: document.getElementById('name').value,
         type: document.getElementById('type').value,
         filling: document.getElementById('filling').value,
-        price: parseFloat(document.getElementById('price').value) || null,
+        price: parseFloat(document.getElementById('price').value),
         isSoldOut: !!parseInt(document.getElementById('is_sold_out').value),
     };
 
-    if (!data.name || !data.type) {
+
+
+    if (!data.name || !data.type || !data.price) {
         alert('Campos requeridos');
         return;
     }
@@ -54,6 +56,7 @@ async function saveEmpanada() {
         if (!response.ok) throw new Error('Error al guardar');
         loadEmpanadas();
         bootstrap.Modal.getInstance(document.getElementById('addModal')).hide();
+        
     } catch (error) {
         alert(error.message);
     }
@@ -89,6 +92,18 @@ async function deleteEmpanada(id) {
             alert(error.message);
         }
     }
+}
+
+function openAddModal() {
+    document.getElementById('id').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('type').value = '';
+    document.getElementById('filling').value = '';
+    document.getElementById('price').value = '';
+    document.getElementById('is_sold_out').value = '0';
+    document.querySelector('#addModal .modal-title').textContent = 'Agregar Empanada';
+
+    new bootstrap.Modal(document.getElementById('addModal')).show();
 }
 
 document.getElementById('empanadaForm').addEventListener('submit', (e) => {

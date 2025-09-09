@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Empanadas para Fiestas Patrias</h1>
-        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addModal">Agregar Empanada</button>
+        <button class="btn btn-primary mb-3" onclick="openAddModal()" >Agregar Empanada</button>
         <table class="table table-striped" id="empanadasTable">
             <thead>
                 <tr>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Precio</label>
-                            <input type="number" id="price" class="form-control">
+                            <input type="number" id="price" class="form-control" required step="0.01" min="0">
                         </div>
                         <div class="mb-3">
                             <label>Agotada</label>
