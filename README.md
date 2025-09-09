@@ -1,4 +1,4 @@
-# Proyecto Next.js con CodeIgniter
+# Proyecto Nest js con CodeIgniter
 
 
 ## Requisitos previos
@@ -47,3 +47,4 @@
 
 ## Notas
 - Si `php spark serve` falla, verifica que CodeIgniter esté instalado o  (`composer install` si es necesario).
+
